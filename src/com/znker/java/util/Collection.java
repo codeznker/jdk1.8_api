@@ -1,12 +1,14 @@
 package com.znker.java.util;
 
-import com.znker.java.lang.Iterator;
+import java.util.Iterator;
 
 /**
  * Collection接口位于集合层次的顶部，它定义操作一组对象的最核心、最通用的方法，
  * 集合中定义的所有的类都必须实现该接口
+ *
+ * 后面其它的集合类还是要实现java.util.Collection<E>接口，否则foreach迭代方法无法使用
  */
-public interface Collection<E> extends com.znker.java.lang.Iterator {
+public interface Collection<E> extends Iterator<E> {
 
     /**
      * 返回调用集合中元素的数量，最大值是 Integer.MAX_VALUE
@@ -22,9 +24,6 @@ public interface Collection<E> extends com.znker.java.lang.Iterator {
      * 判断集合中是否存在指定的元素，如果存在就返回true
      */
     boolean contains(Object obj);
-
-    // 判断调用集合是否包含c中所有的元素
-    boolean containsAll(Collection<?> c);
 
     /**
      * 返回调用集合的一个迭代器对象
